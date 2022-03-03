@@ -1,0 +1,35 @@
+.gameCard {
+    width: 350px;
+    height: 458px;
+    background: rgba(63, 45, 113, 0.42);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: .5s;
+
+    &:hover {
+        transition: .5s;
+        transform: scale(1.05, 1.05);
+    }
+}
+
+.gameName {
+    font-weight: 500;
+    font-size: 30px;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 35px #FF0000;
+}
+
+.gameImage {
+    max-width: 250px;
+    max-height: 210px;
+}
+
+@media all and (max-width: 768px) {
+
+    .gameCard {
+        width: 300px;
+    }
+}

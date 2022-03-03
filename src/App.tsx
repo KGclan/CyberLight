@@ -1,16 +1,21 @@
 import React from 'react';
-import NeonButton from './modules/UI/buttons/neon/NeonButton';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
+import HeaderNav from './components/header/nav/HeaderNav';
+import Home from './pages/home/Home';
+import Top from './pages/top/Top';
 
 function App() {
   return (
-    <div className="App">
-      <NeonButton 
-        color={'red'}
-        width={'200px'}
-        height={'30px'}
-        text={'ggWp'}
-      />
-    </div>
+      <Router>
+         <div>
+            <HeaderNav />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/top" element={<Top />} />
+            </Routes>
+         </div>
+       </Router>
   );
 }
 

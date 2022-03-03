@@ -1,0 +1,124 @@
+.headerInfo {
+    height: auto;
+    width: 100%;
+    background-color: #141752;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.container {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 70px 0;
+
+    &__title {
+        font-size: 36px;
+        line-height: 42px;
+        color: white;
+    }
+
+    &__text {
+        font-size: 20px;
+        color: white;
+    }
+}
+
+.logo {
+    position: relative;
+    width: 356px;
+    height: 356px;
+    background: #571FCD;
+    border: 3px solid #5F0061;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 35px #A101A5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: logoAnimation 2s linear infinite alternate 0s forwards;
+    transition: 1s;
+
+    &__title {
+        color: white;
+        text-shadow: 0px 0px 35px #5F0061;
+        transform: rotate(-0.13deg);
+        font-size: 72px;
+        line-height: 84px;
+    }
+}
+
+@keyframes logoAnimation {
+    0% {
+
+    }
+
+    25% {
+        transform: scale(0.95, 0.95);
+    }
+
+    50% {
+        transform: scale(1, 1);
+    }
+
+    75% {
+        transform: scale(0.95, 0.95);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@media all and (max-width: 1280px) {
+    .container {
+        width: 100%;
+        flex-direction: column-reverse;
+        padding-top: 30px;
+    }
+
+    .info {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .info {
+        &__title {
+            font-size: 20px;
+            line-height: 25px;
+            color: white;
+        }
+    
+        &__text {
+            font-size: 13px;
+            color: white;
+        }
+    }
+    
+    .logo {
+        width: 250px;
+        height: 250px;
+    
+        &__title {
+            color: white;
+            text-shadow: 0px 0px 35px #5F0061;
+            transform: rotate(-0.13deg);
+            font-size: 50px;
+            line-height: 60px;
+        }
+    }
+}

@@ -1,5 +1,34 @@
 .neonButton {
-    &__red {
-        background-color: red;
+    border: none;
+    opacity: .9;
+    color: white;
+    transition: .5s;
+    font-size: 18px;
+
+    &:hover {
+        transition: .5s;
+        opacity: 1;
+        cursor: pointer;
     }
+}
+
+.default {
+    background-color: #5F0061;
+    box-shadow: 0px 0px 35px #A101A5, inset 0px 0px 5px rgba(161, 1, 165, 0.25);
+}
+
+.red {
+    background-color: red;
+    box-shadow: 0px 0px 35px red, inset 0px 0px 5px red;
+    opacity: .7;
+}
+
+.orange {
+    background-color: orange;
+    box-shadow: 0px 0px 35px orange, inset 0px 0px 5px orange;
+    opacity: .7;
+}
+
+.neonOff {
+    box-shadow: none;
 }

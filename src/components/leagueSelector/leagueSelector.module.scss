@@ -1,0 +1,19 @@
+.leagueSelector {
+    height: 100px;
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &__item {
+        color: white;
+        text-decoration: none;
+        transition: 1s;
+        padding-right: 20px;
+
+         &:hover {
+            transition: 1s;
+            color: #A0009A;
+         }
+    }
+}
