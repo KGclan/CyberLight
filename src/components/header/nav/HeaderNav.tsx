@@ -19,13 +19,18 @@ const HeaderNav = () => {
                     <Link
                         to="/"
                         className={styles.nav__item}
-                        onClick={() => dispatch({type: 'CLICK'})}
+                        onClick={() => dispatch({type: 'LOAD_GAMES'})}
                     >
                         Главная
                     </Link>
                     <Link
                         to="/top"
                         className={styles.nav__item}
+                        onClick={() => {
+                            dispatch({type: 'LOAD_PROFILES'});
+                            dispatch({type: 'LOAD_TEAMS'});
+                            dispatch({type: 'LOAD_MATCHS'});
+                        }}
                     >
                         Топ
                     </Link>

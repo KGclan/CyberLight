@@ -8,6 +8,6 @@ function* getGamesSaga() {
     yield put({type: 'SET_GAMES', payload: data});
 }
 
-export default function* watchHomeSagas() {
-    yield takeEvery('CLICK', getGamesSaga);
+export default function* watchGameSagas() {
+    yield takeEvery('LOAD_GAMES', getGamesSaga);
 }

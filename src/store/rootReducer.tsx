@@ -1,9 +1,15 @@
 import { combineReducers } from "redux";
 
-import { homeReducer } from "./reducers/homeReducer";
+import { gameReducer } from "./reducers/gameReducer";
+import { matchReducer } from "./reducers/matchReducer";
+import { profileReducer } from "./reducers/profileReducer";
+import { teamReducer } from "./reducers/teamsReducer";
 
 const rootReducer = combineReducers({
-	home: homeReducer,
+	games: gameReducer,
+	profiles: profileReducer,
+	teams: teamReducer,
+	matchs: matchReducer,
 });
 
 export default rootReducer;
