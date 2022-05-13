@@ -1,0 +1,68 @@
+.matchsTable {
+    width: 100%;
+    padding: 100px 0;
+    background: #141745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    p, a, h1 {
+        color: white;
+    }
+    
+    a {
+        position: absolute;
+        right: 10%;
+        top: calc(50% - 15px);
+        width: 125px;
+        height: 30px;
+        background: #5F0061;
+        box-shadow: inset 0px 0px 5px rgba(161, 1, 165, 0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    h1 {
+        position: absolute;
+        top: 0;
+        font-size: 36px;
+        color: #FFFFFF;
+    }
+};
+
+.infoHeader, .team {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+}
+
+.infoHeader {
+    background: rgba(2, 1, 5, 0.42);
+    justify-content: space-around;
+}
+
+.infoBody {
+    background: rgba(63, 45, 113, 0.42);
+    justify-content: center;
+    position: relative;
+}
+
+.team {
+    justify-content: center;
+    gap: 15px;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+}
+
+.noData {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
