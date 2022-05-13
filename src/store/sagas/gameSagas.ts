@@ -1,11 +1,20 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { getGamesRequest } from "../response/api";
+import { getGamesRequest } from "../api";
 
-function* getGamesSaga() {
-    const data: any[] = yield call(getGamesRequest);
+function* getGamesSaga(action: any) {
+    yield put({type: 'SET_GAMES_LOADER', payload: true});
 
-    yield put({type: 'SET_GAMES', payload: data});
+    try {
+        const {offset} = action.payload;
+        const {count, results} = yield call(getGamesRequest, offset);
+
+        yield put({type: 'SET_GAMES', payload: {games: results, totalCount: count}});
+    } catch (error) {
+        console.log(error);
+    } finally {
+        yield put({type: 'SET_GAMES_LOADER', payload: false});
+    }
 }
 
 export default function* watchGameSagas() {

@@ -1,11 +1,13 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { getTeamsRequest } from "../response/api";
+import { getTeamsRequest } from "../api";
 
-function* getTeamsSaga() {
-    const data: any[] = yield call(getTeamsRequest);
+function* getTeamsSaga(action: any) {
+    const {title, league} = action.payload;
 
-    yield put({type: 'SET_TEAMS', payload: data});
+    const {count, results} = yield call(getTeamsRequest, league, title);
+
+    yield put({type: 'SET_TEAMS', payload: {teams: results, totalCount: count}});
 }
 
 export default function* watchTeamSagas() {

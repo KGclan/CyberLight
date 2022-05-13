@@ -1,15 +1,33 @@
+export interface IMatchsDataStorage {
+    totalCount: number;
+    matchs: IMatch[];
+};
 export interface IMatch {
     id: number;
     date: Date;
     time: Date;
-    game: number;
+    game: {
+        title: string,
+        slug: string,
+    };
     teams: number[];
+    league: {league: string};
 };
 
-export const matchReducer = (state: IMatch[] = [], action: any) => {
+const initialState: IMatchsDataStorage = {
+    totalCount: 0,
+    matchs: [],
+};
+
+
+export const matchReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case 'SET_MATCHS':
-            return [...action.payload];
+            return {
+                ...state,
+                matchs: action.payload.data,
+                totalCount: action.payload.count,
+            };
         default: return state;
     }
 };

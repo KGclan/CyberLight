@@ -14,25 +14,14 @@ const HeaderNav = () => {
                 <p className={styles.logo}>Cyber Light</p>
                 <nav
                     className={cn(styles.nav,
-                        { [styles.burger_open]: isBurgerActive })}
+                        {[styles.burger_open]: isBurgerActive })}
                 >
                     <Link
                         to="/"
                         className={styles.nav__item}
-                        onClick={() => dispatch({type: 'LOAD_GAMES'})}
+                        onClick={() => dispatch({type: 'LOAD_GAMES', payload: {offset: 0}})}
                     >
-                        Главная
-                    </Link>
-                    <Link
-                        to="/top"
-                        className={styles.nav__item}
-                        onClick={() => {
-                            dispatch({type: 'LOAD_PROFILES'});
-                            dispatch({type: 'LOAD_TEAMS'});
-                            dispatch({type: 'LOAD_MATCHS'});
-                        }}
-                    >
-                        Топ
+                        Игры
                     </Link>
                 </nav>
                 <div

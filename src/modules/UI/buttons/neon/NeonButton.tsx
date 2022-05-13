@@ -1,5 +1,7 @@
-import React, {FC} from "react";
+import React from "react";
 import cn from "classnames";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import styles from "./neon.module.scss";
 
@@ -10,28 +12,46 @@ interface INeonButton {
     height: string;
     fontSize?: string;
     is_neon?: boolean;
+    to: string;
+    gameTitle?: string;
+    profileId?: number;
 }
 
-const NeonButton: FC<INeonButton> = ({
+const NeonButton = ({
     color,
     text,
     width,
     height,
     fontSize,
-    is_neon}) => {
+    is_neon,
+    to,
+    gameTitle,
+    profileId,
+}: INeonButton) => {
+    const dispatch = useDispatch();
+
     return(
-        <button 
-            style={{height: height, width: width, fontSize: fontSize}}
-            className={cn(styles.neonButton,
-            {
-                [styles.default]: color === 'default',
-                [styles.red]: color === 'red',
-                [styles.orange]: color === 'orange',
-                [styles.neonOff]: is_neon === false,
-            }
-        )}>
-            {text}
-        </button>
+        <Link to={to.replace(' ', '')}>
+            <button 
+                style={{height: height, width: width, fontSize: fontSize}}
+                onClick={
+                    () => {
+                        gameTitle && dispatch({type: 'SET_SELECTED_GAME', payload: gameTitle});
+                        window.scrollTo(0, 0);
+                        profileId && dispatch({type: 'SET_PROFILE', payload: profileId});
+                    }
+                }
+                className={cn(styles.neonButton,
+                {
+                    [styles.default]: color === 'default',
+                    [styles.red]: color === 'red',
+                    [styles.orange]: color === 'orange',
+                    [styles.neonOff]: is_neon === false,
+                }
+            )}>
+                {text}
+            </button>
+        </Link>
     );
 }
 

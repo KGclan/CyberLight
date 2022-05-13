@@ -1,19 +1,24 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Footer from './components/footer/Footer';
 
 import HeaderNav from './components/header/nav/HeaderNav';
 import Home from './pages/home/Home';
+import Profile from './pages/profile/Profile';
 import Top from './pages/top/Top';
 
 function App() {
+
   return (
       <Router>
          <div>
             <HeaderNav />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/top" element={<Top />} />
+              <Route path='/' element={<Home />} />
+              <Route path='/game/:slug' element={<Top />} />
+              <Route path='/profile/:id' element={<Profile />} />
             </Routes>
+            <Footer />
          </div>
        </Router>
   );
