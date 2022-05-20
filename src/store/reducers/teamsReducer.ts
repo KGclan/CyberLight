@@ -28,6 +28,11 @@ export const teamReducer = (state = initialState, action: any) => {
                 teams: [...action.payload.teams],
                 totalCount: action.payload.totalCount,
             };
+        case 'SET_TEAM':
+            return {
+                teams: [action.payload.teams],
+                totalCount: action.payload.totalCount,
+            };
         default: return state;
     }
 };

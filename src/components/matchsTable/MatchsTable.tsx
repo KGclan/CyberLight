@@ -24,11 +24,11 @@ const MatchsTable = ({matchs}: IMatchsTable) => {
                             </div>
                             <div className={styles.infoBody}>
                                 <div className={styles.team}>
-                                    <p>{item.teams[0]}</p>
+                                    <p>{item.teams[0].title}</p>
                                     <p>vs</p>
-                                    <p>{item.teams[1]}</p>
+                                    <p>{item.teams[1].title}</p>
                                 </div>
-                                <a href='https://youtu.be/wZi7ZkcOus8'>Смотреть</a>
+                                <a href={item.url}>Смотреть</a>
                             </div>
                         </div>
                     ))}

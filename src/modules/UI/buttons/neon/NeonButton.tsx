@@ -26,7 +26,6 @@ const NeonButton = ({
     is_neon,
     to,
     gameTitle,
-    profileId,
 }: INeonButton) => {
     const dispatch = useDispatch();
 
@@ -38,7 +37,6 @@ const NeonButton = ({
                     () => {
                         gameTitle && dispatch({type: 'SET_SELECTED_GAME', payload: gameTitle});
                         window.scrollTo(0, 0);
-                        profileId && dispatch({type: 'SET_PROFILE', payload: profileId});
                     }
                 }
                 className={cn(styles.neonButton,

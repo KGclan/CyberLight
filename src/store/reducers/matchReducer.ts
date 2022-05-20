@@ -10,8 +10,9 @@ export interface IMatch {
         title: string,
         slug: string,
     };
-    teams: number[];
+    teams: {title: string}[];
     league: {league: string};
+    url: string;
 };
 
 const initialState: IMatchsDataStorage = {

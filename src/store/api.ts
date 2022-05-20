@@ -9,9 +9,10 @@ export const getProfilesRequest = async(
     offset: number = 0,
     gameName: string,
     league: string = 'Основная лига',
+    team: string = '',
 ) => {
     const request = await fetch(
-        `http://127.0.0.1:8000/profiles/?game=${gameName}&league=${league}&offset=${offset}&limit=9`
+        `http://127.0.0.1:8000/profiles/?&offset=${offset}&limit=9&game=${gameName || ''}&league=${league}&team=${team}`
     );
     const responseData = await request.json();
 
@@ -35,6 +36,15 @@ export const getTeamsRequest = async(
 ) => {
     const request = await fetch(
         `http://127.0.0.1:8000/teams/?league=${league}&games=${gameName}&offset=${offset}&limit=${limit}`
+    );
+    const responseData = await request.json();
+
+    return responseData;
+};
+
+export const getTeamRequest = async(id: number) => {
+    const request = await fetch(
+        `http://127.0.0.1:8000/teams/${id}`
     );
     const responseData = await request.json();
 

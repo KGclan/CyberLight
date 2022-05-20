@@ -3,8 +3,8 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { getProfileRequest, getProfilesRequest } from "../api";
 
 function* getProfilesSaga(action: any) {
-    const {offset, title, league} = action.payload;
-    const {count, results} = yield call(getProfilesRequest, offset, title, league);
+    const {offset, title, league, team} = action.payload;
+    const {count, results} = yield call(getProfilesRequest, offset, title, league, team);
 
     yield put({type: 'SET_PROFILES', payload: {profiles: results, totalCount: count}});
 };

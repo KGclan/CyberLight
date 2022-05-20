@@ -2,11 +2,19 @@ export interface IProfile {
     id: number;
     nickname: string;
     image: string;
-    aboutMe: string;
+    about_me: string;
     user: number;
     game: {title: string};
     rating: string;
     league: {league: string};
+    win: number;
+    lose: number;
+    age: number;
+    phone: string;
+    email: string;
+    vk: string;
+    status: any;
+    team: string[];
 };
 
 export interface IProfilesDataStorage {
@@ -29,7 +37,7 @@ export const profileReducer = (state = initialState, action: any) => {
             };
         case 'SET_PROFILE': 
             return {
-                profiles: [...action.payload.profiles],
+                profiles: [action.payload.profiles],
                 totalCount: action.payload.totalCount,
             };
         default: return state;
