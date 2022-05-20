@@ -4,6 +4,7 @@ import createSagaMiddleware from "redux-saga";
 import { IGamesDataStorage } from "./reducers/gameReducer";
 import { ILoaders } from "./reducers/loadersReducer";
 import { IMatchsDataStorage } from "./reducers/matchReducer";
+import { INewsDataStorage } from "./reducers/newsReducer";
 import { IProfilesDataStorage } from "./reducers/profileReducer";
 import { ISettings } from "./reducers/settingsReducer";
 import { ITeamsDataStorage } from "./reducers/teamsReducer";
@@ -15,6 +16,7 @@ export interface IRootState {
     profilesDataStorage: IProfilesDataStorage;
     teamsDataStorage: ITeamsDataStorage;
     matchsDataStorage: IMatchsDataStorage;
+    newsDataStorage: INewsDataStorage;
     loaders: ILoaders;
     settings: ISettings;
 };

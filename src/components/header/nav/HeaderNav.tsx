@@ -23,6 +23,12 @@ const HeaderNav = () => {
                     >
                         Игры
                     </Link>
+                    <Link
+                        to="/news"
+                        className={styles.nav__item}
+                    >
+                        Новости
+                    </Link>
                 </nav>
                 <div
                     className={cn(styles.burger_button,

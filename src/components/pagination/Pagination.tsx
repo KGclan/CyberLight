@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../store/store';
 
 import styles from './pagination.module.scss';
 
 interface IPagination {
-    tableType: 'games' | 'matchs' | 'players' | 'teams';
+    tableType: 'games' | 'matchs' | 'players' | 'teams' | 'news';
     game?: string;
 };
 
@@ -16,13 +16,16 @@ const Pagination = ({game, tableType}: IPagination) => {
     const matchsCount = useSelector((state: IRootState) => state.matchsDataStorage.totalCount);
     const gamesCount = useSelector((state: IRootState) => state.gamesDataStorage.totalCount);
     const teamsCount = useSelector((state: IRootState) => state.teamsDataStorage.totalCount);
+    const newsCount = useSelector((state: IRootState) => state.newsDataStorage.totalCount);
     
-    const getPageCount = (count: number) => Math.ceil(count / (tableType === 'matchs' ? 10 : 9));
+    const getPageCount = (count: number) => Math.ceil(count / (tableType === 'matchs' ? 10 : tableType === 'news' ? 5 : 9));
 
-    console.log(playersCount);
+    console.log(getPageCount(newsCount));
     
     const getButtonNumber = () => {
         switch (tableType) {
+            case 'news': 
+                return getPageCount(newsCount) > 2 ? [1, 2, 3] : getPageCount(newsCount) === 2 ? [1, 2] : [1];
             case 'games': 
                 return getPageCount(gamesCount) > 2 ? [1, 2, 3] : getPageCount(gamesCount) === 2 ? [1, 2] : [1];
             case 'players': 
@@ -36,8 +39,9 @@ const Pagination = ({game, tableType}: IPagination) => {
 
     const [buttonNumber, setButtonNumber] = useState<number[]>(getButtonNumber());
 
-    console.log(buttonNumber);
-
+    useEffect(() => {
+        setButtonNumber(getButtonNumber());
+    }, [newsCount]);
 
     const getRightPage = (offset: number, limit: number, title?: string) => {
         if (tableType === 'matchs') dispatch({type: 'LOAD_MATCHS', payload: {
@@ -57,6 +61,9 @@ const Pagination = ({game, tableType}: IPagination) => {
             title,
             league: selectedLeague,
         }});
+        if (tableType === 'news') dispatch({type: 'LOAD_NEWS', payload: {
+            offset: (offset * 5) - 5,
+        }});
     };
 
     return (
@@ -75,6 +82,7 @@ const Pagination = ({game, tableType}: IPagination) => {
                     <button
                         className={styles.paginationButton}
                         onClick={() => getRightPage(item, 10, game)}
+                        key={item}
                     >
                         {item}
                     </button>

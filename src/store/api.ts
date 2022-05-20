@@ -65,3 +65,10 @@ export const getMatchsRequest = async(
     return responseData;
 };
 
+export const getNewsRequest = async(offset: number = 0,) => {
+    const request = await fetch(`http://127.0.0.1:8000/news/?offset=${offset}&limit=5`);
+    const responseData = await request.json();
+
+    return responseData;
+};
+
