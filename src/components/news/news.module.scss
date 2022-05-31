@@ -24,11 +24,12 @@
         color: white;
     }
 
-    button {
+    a {
         background: #5F0061;
         box-shadow: 0px 0px 35px #A101A5, inset 0px 0px 5px rgba(161, 1, 165, 0.25);
         border: none;
         color: white;
         padding: 5px 15px;
+        text-decoration: none;
     }
 }

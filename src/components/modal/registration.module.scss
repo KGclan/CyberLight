@@ -1,0 +1,94 @@
+.modal {
+    position: fixed;
+    height: 250px;
+    width: 550px;
+    background: #3F2D71;
+    border-radius: 8px;
+    top: calc(50% - 125px);
+    left: calc(50% - 275px);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        color: #FFFFFF;
+        text-shadow: 0px 0px 35px #DB00FF;
+    }
+
+    button {
+        background: #5F0061;
+        box-shadow: 0px 0px 35px #A101A5, inset 0px 0px 5px rgba(161, 1, 165, 0.25);
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        border: none;
+        color: white;
+    }
+
+    .form {
+        display: flex;
+        gap: 20px;
+        color: white;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: start;
+        }
+    }
+}
+
+.myInput, .myInput::backdrop, .myInput:placeholder-shown {
+    height: 24px;
+    background-color: #3D006D;
+    border: 1px solid #320058;
+    box-shadow: 0px 0px 35px #3D006D;
+    color: white;
+}
+
+.closeModal {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 24px;
+	height: 24px;
+	opacity: 0.2;
+	cursor: pointer;
+    transition: opacity ease 0.5s;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.closeModal::before,
+.closeModal::after {
+	content: '';
+	position: absolute;
+	top: 10px;
+	display: block;
+	width: 24px;
+	height: 3px;
+	background: white;
+}
+
+.closeModal::before {
+	transform: rotate(45deg);
+}
+
+.closeModal::after {
+	transform: rotate(-45deg);
+}
+
+.error {
+    position: absolute;
+    color: red;
+    bottom: 45px;
+    left: 36%;
+}
+
+.disableButton {
+    opacity: .5;
+}

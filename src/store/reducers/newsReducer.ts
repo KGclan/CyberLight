@@ -8,6 +8,7 @@ export interface INews {
     title: string;
     body: string;
     image: string;
+    date: string;
 };
 
 const initialState: INewsDataStorage = {
@@ -24,6 +25,11 @@ export const newsReducer = (state = initialState, action: any) => {
                 news: [...action.payload.data],
                 totalCount: action.payload.count,
             };
+        case 'SET_DETAILED_NEWS':
+            return {
+                news: [action.payload.data],
+                totalCount: 1,
+            }
         default: return state;
     }
 };

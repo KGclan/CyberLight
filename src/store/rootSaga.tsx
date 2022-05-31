@@ -4,6 +4,7 @@ import watchHomeSagas from './sagas/gameSagas';
 import watchMatchsSagas from './sagas/matchSagas';
 import watchNewsSagas from './sagas/newsSagas';
 import watchTopSagas from './sagas/profileSagas';
+import watchAuthSagas from './sagas/settingsSagas';
 import watchTeamSagas from './sagas/teamSagas';
 
 export default function* rootSaga() {
@@ -13,5 +14,6 @@ export default function* rootSaga() {
         fork(watchTeamSagas),
         fork(watchMatchsSagas),
         fork(watchNewsSagas),
+        fork(watchAuthSagas),
     ]);
 };

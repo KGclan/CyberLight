@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { getNewsRequest } from "../api";
+import { getDetailedNewsRequest, getNewsRequest } from "../api";
 
 function* getNewsSaga(action: any) {
     const {offset} = action.payload;
@@ -9,6 +9,14 @@ function* getNewsSaga(action: any) {
     yield put({type: 'SET_NEWS', payload: {data: results, count}});
 };
 
+function* getDetailedNewsSaga(action: any) {
+    const {id} = action.payload;
+    const data: Promise<any> = yield call(getDetailedNewsRequest, id);
+
+    yield put({type: 'SET_DETAILED_NEWS', payload: {data}});
+}
+
 export default function* watchNewsSagas() {
     yield takeEvery('LOAD_NEWS', getNewsSaga);
+    yield takeEvery('LOAD_DETAILED_NEWS', getDetailedNewsSaga);
 };
